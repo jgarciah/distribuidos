@@ -354,7 +354,7 @@ public class ventana extends javax.swing.JFrame {
             //System.out.println(dateFormat.format(date)); //2014/08/06 15:59:48
             String guardar = "<enviado>\n\t<hora>"+dateFormat.format(date)+"</hora>\n";
             guardar = guardar+"\t<remitente>"+from+"</remitente>\n";
-            guardar = guardar+"\t<mensaje>"+mensaje+"</mensaje>\n</enviado>";
+            guardar = guardar+"\t<mensaje>"+mensaje+"</mensaje>\n</enviado>\n";
             FileWriter fw = new FileWriter(f, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw);

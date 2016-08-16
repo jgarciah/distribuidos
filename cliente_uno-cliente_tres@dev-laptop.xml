@@ -1,25 +1,15 @@
 <enviado>
-	<hora>2016/08/15 22:43:40</hora>
+	<hora>2016/08/15 22:53:31</hora>
 	<remitente>cliente_uno</remitente>
-	<mensaje>erverv</mensaje>
-</enviado><enviado>
-	<hora>2016/08/15 22:45:36</hora>
-	<remitente>cliente_uno</remitente>
-	<mensaje>vrf</mensaje>
-</enviado><enviado>
-	<hora>2016/08/15 22:45:38</hora>
-	<remitente>cliente_uno</remitente>
-	<mensaje>fff</mensaje>
-</enviado><enviado>
-	<hora>2016/08/15 22:45:39</hora>
-	<remitente>cliente_uno</remitente>
-	<mensaje>wer</mensaje>
-</enviado><enviado>
-	<hora>2016/08/15 22:45:51</hora>
+	<mensaje>hola desde smack</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 22:53:42</hora>
 	<remitente>cliente_tres@dev-laptop</remitente>
-	<mensaje>fr</mensaje>
-</enviado><enviado>
-	<hora>2016/08/15 22:45:55</hora>
-	<remitente>cliente_tres@dev-laptop</remitente>
-	<mensaje>gth</mensaje>
+	<mensaje>hola desde spark</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:10:27</hora>
+	<remitente>cliente_uno</remitente>
+	<mensaje>a</mensaje>
 </enviado>

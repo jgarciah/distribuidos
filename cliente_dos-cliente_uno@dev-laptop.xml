@@ -1,0 +1,50 @@
+<enviado>
+	<hora>2016/08/15 23:08:59</hora>
+	<remitente>cliente_dos</remitente>
+	<mensaje>hola desde smack</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:09:15</hora>
+	<remitente>cliente_uno@dev-laptop</remitente>
+	<mensaje>hola desde smack 01</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:09:23</hora>
+	<remitente>cliente_dos</remitente>
+	<mensaje>hola</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:09:50</hora>
+	<remitente>cliente_dos</remitente>
+	<mensaje>hola desde smack 2</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:10:01</hora>
+	<remitente>cliente_uno@dev-laptop</remitente>
+	<mensaje>hola</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:10:04</hora>
+	<remitente>cliente_dos</remitente>
+	<mensaje>sa</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:10:20</hora>
+	<remitente>cliente_uno@dev-laptop</remitente>
+	<mensaje>a</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:10:24</hora>
+	<remitente>cliente_dos</remitente>
+	<mensaje>sa</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:10:31</hora>
+	<remitente>cliente_dos</remitente>
+	<mensaje>as</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:10:40</hora>
+	<remitente>cliente_dos</remitente>
+	<mensaje>ss</mensaje>
+</enviado>

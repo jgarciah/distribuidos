@@ -1,0 +1,15 @@
+<enviado>
+	<hora>2016/08/15 23:09:15</hora>
+	<remitente>cliente_uno</remitente>
+	<mensaje>hola desde smack 01</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:10:01</hora>
+	<remitente>cliente_uno</remitente>
+	<mensaje>hola</mensaje>
+</enviado>
+<enviado>
+	<hora>2016/08/15 23:10:20</hora>
+	<remitente>cliente_uno</remitente>
+	<mensaje>a</mensaje>
+</enviado>
