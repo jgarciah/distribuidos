@@ -261,6 +261,10 @@ public class ventana extends javax.swing.JFrame {
                 tabbedPane.add(chats.get(i));
             }
             tablaContactos.setModel(tm);
+            /*
+            while (true) {
+                Thread.sleep(50);
+            }*/
                 
         } catch (Exception e) {
             System.out.println("Error en boton login: "+e.getMessage());
@@ -293,7 +297,7 @@ public class ventana extends javax.swing.JFrame {
     private void tablaContactosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaContactosMouseClicked
         selectedUsuario = (String)tm.getValueAt(tablaContactos.getSelectedRow(),tablaContactos.getSelectedColumn());
         //tabbedPane.add(chats.get(tablaContactos.getSelectedRow()));
-        tabbedPane.setTitleAt(tabbedPane.getSize().width, selectedUsuario);
+        //tabbedPane.setTitleAt(tabbedPane.getSize().width, selectedUsuario);
         System.out.println("Seleccionado: "+selectedUsuario);
     }//GEN-LAST:event_tablaContactosMouseClicked
 
@@ -339,7 +343,7 @@ public class ventana extends javax.swing.JFrame {
             JTextPane source=new JTextPane(); 
             String from = message.getFrom();
             for(JTextPane tp : chats){
-                if(tp.getName().compareToIgnoreCase(from) == 0)
+                if(tp.getName().compareToIgnoreCase(from.substring(0, from.indexOf("/"))) == 0)
                     source = tp;
             }
             //JTextPane tp = chats.get(tablaContactos.getSelectedRow());
