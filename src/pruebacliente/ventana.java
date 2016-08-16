@@ -5,10 +5,16 @@
  */
 package pruebacliente;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import javax.swing.JTextPane;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import org.jivesoftware.smack.Chat;
@@ -32,6 +38,7 @@ public class ventana extends javax.swing.JFrame {
     private ArrayList<RosterEntry> contactos;
     private XmppManager xmppManager;
     private TableModel tm = new DefaultTableModel();
+    private ArrayList<File> archivosLog = new ArrayList<>();
     private Object[] arrayColumnas = {"Alias","Usuario","Estado"};
     public ventana() {
         initComponents();
@@ -259,6 +266,7 @@ public class ventana extends javax.swing.JFrame {
                 tp.setName(contactos.get(i).getUser());
                 chats.add(tp);
                 tabbedPane.add(chats.get(i));
+                //archivosLog.add(abrirArchivo(username+"-"+contactos.get(i).getUser()));
             }
             tablaContactos.setModel(tm);
             /*
@@ -282,6 +290,8 @@ public class ventana extends javax.swing.JFrame {
                 //chat.setText(chat.getText()+"\n"+"YO: "+msj);
                 tp.setText(tp.getText()+"\n"+"YO: "+msj);
                 input.setText("");
+                File f = abrirArchivo(username+"-"+selectedUsuario);
+                guardarMensaje(f, username, msj);
             } catch (Exception e) {
                 System.out.println("Error en boton enviar mensaje"+e.getMessage());
                 e.printStackTrace();
@@ -336,26 +346,63 @@ public class ventana extends javax.swing.JFrame {
         });
     }
     
+    private void guardarMensaje(File f, String from, String mensaje){
+        
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            //System.out.println(dateFormat.format(date)); //2014/08/06 15:59:48
+            String guardar = "<enviado>\n\t<hora>"+dateFormat.format(date)+"</hora>\n";
+            guardar = guardar+"\t<remitente>"+from+"</remitente>\n";
+            guardar = guardar+"\t<mensaje>"+mensaje+"</mensaje>\n</enviado>";
+            FileWriter fw = new FileWriter(f, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw);
+            out.print(guardar);
+            //bw.write(guardar);
+            bw.close();
+        } catch (Exception e) {
+            System.out.println("En escribir archivo");
+            e.getMessage();
+        }
+    }
+    
+    private File abrirArchivo(String filename){
+            File file = new File(filename+".xml");
+        	// if file doesnt exists, then create it
+                if (!file.exists()) {
+                    try {
+                        file.createNewFile();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                System.out.println("Ruta: "+file.getAbsolutePath());
+            return file;
+        }
+    
     class MyMessageListener implements MessageListener {
 
         @Override
         public void processMessage(Chat chat2, Message message) {
             JTextPane source=new JTextPane(); 
             String from = message.getFrom();
+            from = from.substring(0, from.indexOf("/"));
             for(JTextPane tp : chats){
-                if(tp.getName().compareToIgnoreCase(from.substring(0, from.indexOf("/"))) == 0)
+                if(tp.getName().compareToIgnoreCase(from) == 0)
                     source = tp;
             }
             //JTextPane tp = chats.get(tablaContactos.getSelectedRow());
             
             String body = message.getBody();
             if(!body.isEmpty()){
+                File f = abrirArchivo(username+"-"+from);
+                guardarMensaje(f, from, body);
                 source.setText(String.format("%1$s\n%2$s: %3$s.",source.getText(), from, body));
                 System.out.println(String.format("%1$s: %2$s",from, body));
                 //chat.setText(String.format("%1$s\n%2$s: %3$s.",chat.getText(), from, body));
             }
         }
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
